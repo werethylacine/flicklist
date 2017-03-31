@@ -4,17 +4,20 @@
   <meta charset="utf-8"/>
 
   <!--
-  TODO 3b
+  TODA 3b
   add meta viewport tag
   -->
+  <meta name=viewport content="width=device-width, initial-scale=1">
 
 
-  <script src="https://code.jquery.com/jquery-2.2.3.js"></script>  
+  <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
 
   <!--
-  TODO 2a
+  TODA 2a
   add link to Bootstrap CDN
   -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
   <link rel="stylesheet" href="css/styles.css"/>
 
@@ -23,20 +26,20 @@
 <body>
 
   <!--
-  TODO 2b
+  TODA 2b
   give the header a class of "jumbotron"
   give the inner paragraph a class of "text-muted"
   -->
-  <header>
+  <header class="jumbotron">
     <h1>FlickList</h1>
     <p>Keep a list of all the movies you've been meaning to watch.</p>
   </header>
 
 
-  <div class="main-content">
+  <div class="main-content container-fluid">
     <!--
-    TODO 3a
-    put the rest of the content (both sections) inside a div with class "row", 
+    TODA 3a
+    put the rest of the content (both sections) inside a div with class "row",
     and then add the class "container-fluid" to this div (declared above).
     Then, give each section a class of "col-?-?" (fill in the question marks).
     The watchlist and browse list should appear side by side,
@@ -45,47 +48,49 @@
     unless the user is on a tablet or mobile phone, in which case, each section should
     fill the entire width, with the watchlist first and the browse list below.
     -->
+    <div class="row">
+      <!--<div class="col-lg-5 col-m-12">-->
+        <section id="section-watchlist" class="col-lg-5 col-m-12">
+          <header>
+            <h2>My Watchlist</h2>
+            <hr/>
+          </header>
 
-    <section id="section-watchlist">
-      <header>
-        <h2>My Watchlist</h2>
-        <hr/>
-      </header>
+          <!--
+          TODA 2f
+          Give this list a class of "list-inline"
+          -->
+          <ul class="list-inline"></ul>
+        </section>
 
-      <!-- 
-      TODO 2f
-      Give this list a class of "list-inline"
-      -->
-      <ul></ul>
-    </section>
+      <!--<div class="col-lg-7 col-m-12">-->
+        <section id="section-browse" class="col-lg-7 col-m-12">
+          <header>
+            <h2>Browse Movies</h2>
 
-    <section id="section-browse">
-      <header>
-        <h2>Browse Movies</h2>
+            <!--
+            TODA 2e
+            Style this form and its inputs to look like the demo.
+            Use the following classes (google them and find some examples):
+            "input-group", "form-control", "input-group-btn", "btn", "btn-primary"
+            -->
+            <form class="input-group" id="form-search">
+              <input type="text" class="form-control" name="query" placeholder="search by title"/>
+              <span class="input-group-btn"><input class="btn btn-primary" type="submit" value="Search By Title"/></span>
+            </form>
 
-        <!--
-        TODO 2e
-        Style this form and its inputs to look like the demo.
-        Use the following classes (google them and find some examples):
-        "input-group", "form-control", "input-group-btn", "btn", "btn-primary"
-        -->
-        <form id="form-search">
-          <input type="text" name="query"/>
-          <input type="submit" value="Search By Title"/>
-        </form>
+          </header>
 
-      </header>
-
-      <!-- 
-      TODO 2d
-      Style this list to look like the demo.
-      You will also have to make change in flicklist.js inside the render function
-      Use the following styles:
-      "list-group", "list-group-item", "btn", "btn-primary", 
-      -->
-      <ul></ul>
-    </section>
-
+          <!--
+          TODA 2d
+          Style this list to look like the demo.
+          You will also have to make change in flicklist.js inside the render function
+          Use the following styles:
+          "list-group", "list-group-item", "btn", "btn-primary",
+          -->
+          <ul class="list-group"></ul>
+        </section>
+    </div>
   </div>
 
   <script src="js/flicklist.js"></script>
@@ -97,5 +102,5 @@
     });
   </script>
 
-</body> 
+</body>
 </html>

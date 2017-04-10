@@ -1,6 +1,11 @@
+.body {
+	margin: 10px;
+}
 
-
-
+#browse-carousel {
+    max-width: 300px;
+    margin: auto;
+}
 
 .jumbotron {
 	text-align: center;
@@ -30,6 +35,9 @@
 	color: gray;
 }
 
+#content {
+	margin: 20px;
+}
 #section-browse {
 	background: black;
 }

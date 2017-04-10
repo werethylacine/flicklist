@@ -4,12 +4,10 @@
   <meta charset="utf-8"/>
   <meta name=viewport content="width=device-width, initial-scale=1">
 
-  <script src="https://code.jquery.com/jquery-2.2.3.js"></script>  
+  <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
 
-  <!--
-  TODO add bootstrap js script
-  -->
-
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css"/>
 
@@ -24,41 +22,63 @@
   </header>
 
 
-  <div class="main-content">
+  <div class="main-content row">
 
-    <section id="section-watchlist" class="col-md-5">
+    <section id="section-watchlist" class="col-md-12">
       <header>
-        <h2>My Watchlist</h2>
+        <h2> My Watchlist</h2>
         <hr/>
       </header>
 
       <ul class="list-inline"></ul>
     </section>
 
-    <section id="section-browse" class="col-md-7">
+    <section id="section-browse" class="col-md-12">
 
-      <!-- TODO
-      Rearrange the layout of this section using the Bootstrap grid system to match the specification 
-      -->
+      <div id="content" class="row">
 
-      <header>
-        <h2>Browse Movies</h2>
-      </header>
-      <form id="form-search">
-        <div class="input-group">
-          <input type="text" class="form-control" name="query"/>
-          <span class="input-group-btn">
-            <input type="submit" class="btn btn-primary" value="Search By Topic"/>
-          </span>
+        <div class="col-sm-8">
+          <div class="row well">
+            <div class="col-sm-7" id="browse-info">
+              <h4>Twilight</h4>
+              <p>It's a time of day. That's all.</p>
+            </div>
+
+            <div class="col-sm-5">
+              <div id="browse-carousel" class="carousel slide" data-ride="carousel">
+                <!--<ul class="list-group carousel-inner"></ul> -->
+                <ul class="carousel-inner" role="listbox">
+
+                </ul>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#browse-carousel" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#browse-carousel" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+              </div>
+              <button class="btn btn-primary" id="add-to-watchlist">Add to Watchlist</button>
+            </div>
+          </div>
         </div>
-      </form>
 
-      <!-- 
-      TODO
-      implement a carousel inside this section
-      You can incorporate this <ul> as the .carousel-inner 
-      -->
-      <ul class="list-group"></ul>
+        <div class="col-sm-4">
+          <header>
+            <h2>Browse Movies</h2>
+          </header>
+            <form id="form-search">
+              <div class="input-group">
+                <input type="text" class="form-control" name="query"/>
+                <span class="input-group-btn">
+                  <input type="submit" class="btn btn-primary" value="Search By Topic"/>
+                </span>
+              </div>
+            </form>
+        </div>
+
+      </div>
 
     </section>
 
@@ -75,10 +95,11 @@
     $("#browse-carousel").on("slid.bs.carousel", function() {
       console.log("the carousel just slid!");
       var newIndex = $("#browse-carousel").find(".active").index();
-      // TODO 
       // update the model and then re-render
+      model.activeMovieIndex = newIndex;
+      render();
     });
   </script>
 
-</body> 
+</body>
 </html>
